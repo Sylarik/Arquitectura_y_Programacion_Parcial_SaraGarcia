@@ -13,13 +13,13 @@ const addPersonaje = async (req: Request, res: Response) => {
       return;
     }
 
-    /*
+    
     const alreadyExists = await PersonajeModel.findOne({ nombre }).exec();
     if (alreadyExists) {
       res.status(400).send("Ese personaje ya existe");
       return;
     }
-    */
+    
 
     const newPersonaje = new PersonajeModel({ nombre, raza, descripcion, habilidades });
     await newPersonaje.save();
