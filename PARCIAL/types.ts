@@ -5,6 +5,6 @@ export type Monumento = {
   codigo_postal: number;
   ISO: string;
   
-  //state: string;
+  state: string;
 };
 

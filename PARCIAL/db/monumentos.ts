@@ -10,7 +10,7 @@ const monumentoSchema = new Schema(
     codigo_postal: {type: Number, requiered: true},
     ISO: {type: String, required: true},
 
-    //state: {type: String, required: true}
+    state: {type: String, required: false}
   },
   { timestamps: true }
 );
