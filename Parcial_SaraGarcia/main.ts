@@ -12,9 +12,9 @@ import updatePersonaje from "./resolvers/updatePersonaje.ts";
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
 const env = await load();
 
-//const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL"); //1-> busca en env /2-> archivo del sistema
-const PORT = env.PORT || Deno.env.get("PORT") || 3010;
-const MONGO_URL = "mongodb+srv://sgarciag18:123@cluster0.f9boxcy.mongodb.net/tierra?retryWrites=true&w=majority"
+const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL"); //1-> busca en env /2-> archivo del sistema
+const PORT = env.PORT || Deno.env.get("PORT") || 3000;
+//const MONGO_URL = "mongodb+srv://sgarciag18:123@cluster0.f9boxcy.mongodb.net/tierra?retryWrites=true&w=majority"
 
 if (!MONGO_URL) {
   console.log("No mongo URL found");

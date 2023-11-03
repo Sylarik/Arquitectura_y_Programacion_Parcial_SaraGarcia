@@ -1,5 +1,6 @@
 import { Request, Response } from "npm:express@4.18.2";
 import PersonajeModel from "../db/personajes.ts";
+import {RAZAS} from "../types.ts"
 
 const addPersonaje = async (req: Request, res: Response) => {
   try {
@@ -8,11 +9,24 @@ const addPersonaje = async (req: Request, res: Response) => {
       res.status(500).send("Se requieren todos los parametros");
       return;
     }
+
+    //con la enum de razas
+    if(!Object.values(RAZAS).includes(raza)){
+      res.status(500).send("Invalid race");
+      return;
+    }
+    /*
     if(raza!="Hobbit" && raza!="Humano" && raza!="Elfo" && raza!="Enano" && raza!="Ent"){
       res.status(500).send("La raza no se encuentra entre las existentes");
       return;
     }
+    */
 
+     //hay q comprobar q si tengan los tipos de datos q esperamos
+     if (typeof nombre !== "string" || typeof raza !== "string" || typeof descripcion !== "string" || typeof habilidades !== "string") {
+      res.status(500).send("Invalid data type");
+      return;
+    }
     
     const alreadyExists = await PersonajeModel.findOne({ nombre }).exec();
     if (alreadyExists) {
